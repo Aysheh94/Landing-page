@@ -21,7 +21,8 @@ const navBar = document.querySelector('.navbar__menu');
 const hamburger = document.querySelector('.hamburger');
 const navList = document.querySelector('.navbar__list');
 const sections = document.querySelectorAll('section');
-
+// get offset value from root element 
+const rootElement = document.documentElement;
 /**
  * End Global Variables
  * Start Helper Functions
@@ -68,11 +69,11 @@ hamburger.addEventListener('click',() => {
 // Add class 'active' to section when near top of viewport
 const addActiveClass= () => {
     sections.forEach((section) => {
-        const sectionTop= section.getBoundingClientRect().top;
+        const position= section.getBoundingClientRect();
         const sectiosName=section.getAttribute("data-nav");
         const links= document.querySelectorAll("a.menu__link");
 
-        if(sectionTop >=0 && sectionTop <=400){
+        if(position.top <= rootElement.clientHeight/2 && position.bottom >= rootElement.clientHeight/2){
             section.classList.add("your-active-class");
             links.forEach((link) =>{
                 if(link.textContent === sectiosName){
