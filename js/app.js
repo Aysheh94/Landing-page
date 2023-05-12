@@ -66,8 +66,29 @@ hamburger.addEventListener('click',() => {
 
 
 // Add class 'active' to section when near top of viewport
+const addActiveClass= () => {
+    sections.forEach((section) => {
+        const sectionTop= section.getBoundingClientRect().top;
+        const sectiosName=section.getAttribute("data-nav");
+        const links= document.querySelectorAll("a.menu__link");
 
+        if(sectionTop >=0 && sectionTop <=400){
+            section.classList.add("your-active-class");
+            links.forEach((link) =>{
+                if(link.textContent === sectiosName){
+                    link.classList.add("your-active-class");
+                }else{
+                    link.classList.remove("your-active-class");
+                }
+            });
+        }else{
+            section.classList.remove("your-active-class");
+        }
 
+    });
+}
+
+window.addEventListener("scroll",addActiveClass);
 
 
 
