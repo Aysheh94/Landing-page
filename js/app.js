@@ -17,7 +17,10 @@
  * Define Global Variables
  * 
 */
-
+const navBar = document.querySelector('.navbar__menu');
+const hamburger = document.querySelector('.hamburger');
+const navList = document.querySelector('.navbar__list');
+const sections = document.querySelectorAll('section');
 
 /**
  * End Global Variables
@@ -33,7 +36,23 @@
  * 
 */
 
-// build the nav
+// build the nav from each section
+
+const buildNav = () => {
+    sections.forEach((element) => {
+        const navlistText = element.getAttribute('data-nav');
+        const mylist = document.createElement('li');
+        mylist.innerHTML = `<a class="menu__link " href="#">${navlistText}</a>`;
+        navList.appendChild(mylist);
+    });
+};
+
+buildNav();
+
+//toggle hamburger
+hamburger.addEventListener('click',() => {
+    navList.classList.toggle('hide');
+})
 
 
 // Add class 'active' to section when near top of viewport
