@@ -12,7 +12,7 @@
 /* ---- Base Rules ---- */
 body {
     background: rgb(136,203,171);
-    background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
+    background: linear-gradient(0deg, rgba(134, 167, 194, 0.952) 0%, rgb(52, 122, 134) 100%);
     margin: 0;
     font-family: 'Merriweather', serif;
     color: #fff;
@@ -60,23 +60,62 @@ section {
     min-height: 80vh;
 }
 
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
 
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
+.navbar__menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    background-color: rgb(239, 235, 235);
+}
+
+.logo{
+    font-size: 1.8rem;
+    color: rgb(52, 122, 134);
+    padding-left: 20px;
+}
+
+.hamburger{
+    padding-right: 20px;
+    cursor: pointer;
+}
+
+.hamburger .line{
+    display: block;
+    width:40px;
+    height: 5px;
+    margin-bottom: 10px;
+    background-color: black;
+}
+
 .navbar__menu ul {
-    padding-left: 0;
-    margin: 0;
-    text-align: right;
+  position: fixed;
+  width: 100%;
+  padding-left: 0;
+  background-color:rgb(239, 235, 235);
+  top: 2.5rem;
+  text-align: center;
 }
 
 .navbar__menu li {
-    display: inline-block;
+    display: block;
 }
 
 .navbar__menu .menu__link {
     display: block;
-    padding: 1em;
+    padding: 10px 0em;
+    text-align: center;
     font-weight: bold;
     text-decoration: none;
     color: #000;
@@ -86,8 +125,36 @@ section {
     background: #333;
     color: #fff;
     transition: ease 0.3s all;
+    background-color: rgb(145, 192, 200);
 }
 
+.hide{
+    display: none;
+}
+
+
+@media  screen and (min-width:700px) {
+    .navbar__list{
+        display:block;
+    }
+    .navbar__menu ul {
+        position: static;
+        width: auto;
+        margin-right: 20px;
+        background: none;
+    }
+
+    .navbar__list li {
+        display: inline-block;
+        padding: 15px 20px;
+    }
+
+    
+    .hamburger{
+        display: none;
+    }
+    
+}
 /* Header Styles */
 .page__header {
     background: #fff;
