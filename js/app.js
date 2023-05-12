@@ -44,7 +44,17 @@ const buildNav = () => {
         const mylist = document.createElement('li');
         mylist.innerHTML = `<a class="menu__link " href="#">${navlistText}</a>`;
         navList.appendChild(mylist);
+
+
+        // Scroll to appropiate section using scrollIntoView event
+        mylist.addEventListener('click',(elem) => {
+        elem.preventDefault();
+        element.scrollIntoView({ behavior: "smooth"});
+        })
+
     });
+
+    
 };
 
 buildNav();
@@ -58,7 +68,7 @@ hamburger.addEventListener('click',() => {
 // Add class 'active' to section when near top of viewport
 
 
-// Scroll to anchor ID using scrollTO event
+
 
 
 /**
