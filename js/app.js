@@ -53,15 +53,12 @@ const buildNav = () => {
         elem.preventDefault();
         element.scrollIntoView({ behavior: "smooth"});
         })
-
-    });
-
-    
+    });   
 };
 
 buildNav();
 
-//toggle hamburger
+//toggle hamburger event
 hamburger.addEventListener('click',() => {
     navList.classList.toggle('hide');
 })
@@ -90,7 +87,9 @@ const addActiveClass = () => {
     });
 }
 
+//Scroll to active event
 window.addEventListener("scroll",addActiveClass);
+
 
 //scroll to top function
 const handleScroll = () => {
@@ -108,7 +107,6 @@ const scrollToTop = () => {
         behavior:"smooth"
     });
 };
-
 
 //scroll to top event
 scrollToTopBtn.addEventListener('click',scrollToTop);
